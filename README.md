@@ -32,14 +32,14 @@ Usage
 Once the extension is installed, simply use it in your model  :
 
 ```php
-            'htmlTree'=>[
-                'class' => \wokster\treebehavior\NestedSetsTreeBehavior::className()
-            ]
-            ```
+'htmlTree'=>[
+    'class' => \wokster\treebehavior\NestedSetsTreeBehavior::className()
+]
+```
 use
 ```php
-            SomeModel::findOne($id)->tree()
-            ```
+SomeModel::findOne($id)->tree()
+```
 to get array for fancytree-widget
 
 
