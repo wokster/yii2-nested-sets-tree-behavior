@@ -1,0 +1,22 @@
+{
+    "name": "wokster/yii2-nested-sets-tree-behavior",
+    "description": "NestedSetsTreeBehavior for build array from creocoder nested sets behavior and fancytree widget",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","creocoder","behavior","nested sets","array","fancytree"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maksym Tymofeiev",
+            "email": "wokster@list.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "creocoder/yii2-nested-sets": "^0.9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "wokster\\treebehavior\\": ""
+        }
+    }
+}
