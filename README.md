@@ -1,6 +1,10 @@
 NestedSetsTreeBehavior
 ======================
-NestedSetsTreeBehavior for build array from creocoder nested sets behavior and fancytree widget
+NestedSetsTreeBehavior this is the connector between
+https://github.com/creocoder/yii2-nested-sets
+and
+https://github.com/wbraganca/yii2-fancytree-widget
+
 
 Installation
 ------------
@@ -25,7 +29,17 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Once the extension is installed, simply use it in your model  :
 
 ```php
-<?= \wokster\treebehavior\AutoloadExample::widget(); ?>```
+            'htmlTree'=>[
+                'class' => \wokster\treebehavior\NestedSetsTreeBehavior::className()
+            ]
+            ```
+use
+```php
+            SomeModel::findOne($id)->tree()
+            ```
+to get array for fancytree-widget
+
+
