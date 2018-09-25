@@ -23,6 +23,14 @@ class NestedSetsTreeBehavior extends Behavior
      */
     public $labelAttribute = 'name';
     /**
+	 * @var string
+	 */
+	public $key = 'category_id';
+	/**
+	 * @var string
+	 */
+	public $outKey = 'key';
+    /**
      * @var string
      */
     public $childrenOutAttribute = 'children';
@@ -48,6 +56,7 @@ class NestedSetsTreeBehavior extends Behavior
         $makeNode = function ($node) {
             $newData = [
                 $this->labelOutAttribute => $node[$this->labelAttribute],
+                $this->outKey => $node[$this->key],
             ];
             if (is_callable($makeLink = $this->makeLinkCallable)) {
                 $newData += [
@@ -59,7 +68,7 @@ class NestedSetsTreeBehavior extends Behavior
 
         // Trees mapped
         $trees = array();
-        $collection = $this->owner->find()->asArray()->all();
+        $collection = $this->owner->find()->orderBy($this->leftAttribute)->asArray()->all();
 
         if (count($collection) > 0) {
             foreach ($collection as &$col) $col = $makeNode($col);
