@@ -51,7 +51,7 @@ class NestedSetsTreeBehavior extends Behavior
      */
     public $makeLinkCallable = null;
 
-    public function tree()
+    public function tree($sort = SORT_ASC)
     {
         $makeNode = function ($node) {
             $newData = [
@@ -68,7 +68,13 @@ class NestedSetsTreeBehavior extends Behavior
 
         // Trees mapped
         $trees = array();
-        $collection = $this->owner->find()->orderBy($this->leftAttribute)->asArray()->all();
+        $query = $this->owner->find();
+        if($sort == SORT_ASC){
+            $query->orderBy($this->leftAttribute);
+        }else{
+            $query->orderBy([$this->rightAttribute => $sort]);
+        }
+        $collection = $query->asArray()->all();
 
         if (count($collection) > 0) {
             foreach ($collection as &$col) $col = $makeNode($col);
